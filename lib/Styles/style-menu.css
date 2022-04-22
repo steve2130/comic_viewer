@@ -53,13 +53,12 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
         scroll-behavior: smooth;
         transition: background-color 0.2s linear;
     }
 
     html.menu, body.menu {
-        overflow-y: auto;
         background-color: var(--background-color, rgb(43, 43, 43));
         scrollbar-width: thin; /*For Firefox*/
     }
@@ -71,16 +70,113 @@
 
 
 
-/*Escape bar (the bar the linked to the previous page)*/
+/*Nav bar*/
 /*#region*/
 
-    div.navbar_wrapper {
-        width: 64px;
-        height: 100%;
-        text-align: center;
-        display: block;
-        position: fixed;
+    /*Nav bar*/
+    .NavBar {
+        position: relative;
+        top: 0;
+        left: 0;
 
+        height: 36px;
+        width: 100%;
+
+        background-color: rgb(20, 20, 20);
+
+        transition: 0.2s ease-out;
+        
+    }
+
+    .NavButton {
+        height: 36px;
+        width: 60px;
+        border: none;
+        appearance: none;
+        position: relative;
+        top: 0;
+        left: 0;
+
+        cursor: pointer;
+
+        background-color: transparent;
+        transition: background-color 0.2s ease-out;
+    }
+
+    .NavButton:hover {
+        background-color: #202020;
+    }
+
+    .NavBarHambuger {
+        fill: #8d8d8d;
+        height: 23px;
+        display: inline-block;
+        position: relative;
+        left: 0px;
+    }
+
+
+
+
+    /*Nav Side Bar*/
+    .NavSideBar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 13;
+
+        height: 100vh;
+        overflow: hidden;
+        
+        background-color: rgba(22, 22, 22, 0.6);
+        transition: width 0.5s cubic-bezier(0, 0.6, 0.4, 1);
+
+    }
+
+    .NavSideBar_Collapsed {
+        width: 0;
+    }
+
+    .NavSideBar_Expanded {
+        width: 100vw;
+    }
+
+
+    .NavSideBarWrapper {
+        position: fixed;
+        top: 0;
+        left: 0px;
+        z-index: 14;
+        background-color: rgb(22, 22, 22); /*Bugged when using #161616*/
+        list-style-type: none;
+        height: 100vh;
+        transition: width 0.5s cubic-bezier(0, 0.6, 0.4, 1);
+        overflow-x: hidden;
+        display: block;
+
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .NavSideBarWrapper_Collapsed {
+        width: 0;
+    }
+
+    .NavSideBarWrapper_Expanded {
+        width: clamp(260px, 30vw, 450px);
+
+    }
+
+
+
+
+    .nav_list {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+
+        margin-bottom: 16px;
     }
 
 
@@ -109,7 +205,7 @@
         flex-wrap: wrap;
         position: relative;
 
-        margin-left: 5rem;
+        margin-left: 20px;
         margin-top: -4px;
         margin-bottom: 1rem;
     }
@@ -136,7 +232,7 @@
         font-family: 'Noto Sans TC', "NotoSansJP-Light", sans-serif;
         font-weight: 300;
         font-size: 23px;
-        line-height: 1.2em;
+        line-height: 1em;
         width: auto;
         display: block;
         text-decoration: none;
@@ -150,6 +246,8 @@
         color: var(--author-color, #808080);
         font-family: "Noto Sans JP", "NotoSansJP-Light", sans-serif;
         font-weight: 200;
+        position: relative;
+        top: -2px;
         margin: 0px 0 0 0;
         display: inline-block;
     }
@@ -258,23 +356,14 @@
 
 
     /*Escape Bar*/
-    a.escape-link {
-        width: 40px;
-    }
 
-    svg.left-arrow {
-        width: calc(40px / 2);
-        height: calc(40px / 2);
-        left: calc(40px / 4);
-        top: calc(32px / 2);
-    }
 
 
 
 
     /*Books*/
     div.flex-container {
-        margin-left: calc(40px + 1rem);
+        margin-left: 20px;
         flex-direction: column;
     }
 
