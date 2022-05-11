@@ -23,25 +23,20 @@
 
     <div id="nav_bar" class="NavBar">
         <button id="nav_button" class="NavButton">
-            <svg class="NavBarHambuger" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <!--Grab from: https://www.svgrepo.com/svg/313139/hamburger-menu-->
-                <path d="M41,14H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,14Z"/>
-                <path d="M41,26H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,26Z"/>
-                <path d="M41,38H7a2,2,0,0,1,0-4H41A2,2,0,0,1,41,38Z"/>
-            </svg>
+            <div id="navbar_Hambuger_wrapper" class="NavBarHambuger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </button>
-
-        
     </div>
 
 
-    <nav id="nav_side_bar" class="NavSideBar NavSideBar_Collapsed"> <!--Background-->
-        <ul id="nav_side_bar_wrapper" class="NavSideBarWrapper NavSideBarWrapper_Collapsed">    <!--The actual nav bar-->
+    <nav id="nav_side_bar" class="NavSideBar"> <!--Background-->
+        <ul id="nav_side_bar_wrapper" class="NavSideBarWrapper">    <!--The actual nav bar-->
 
 
-            <li id="navList">
 
-            </li>
 
             <li class="nav_list">
 
@@ -229,28 +224,36 @@
 
 
 
-        {
-            const NavButton = document.getElementById("nav_button");
-            const NavSideBar = document.getElementById("nav_side_bar");
-            const NavSideBarWrapper = document.getElementById("nav_side_bar_wrapper");
-            const NavList = document.querySelectorAll("#navList");
+    // Nav bar
+    {
+        const NavButton = document.getElementById("nav_button");
+        const NavSideBar = document.getElementById("nav_side_bar");
+        const NavSideBarWrapper = document.getElementById("nav_side_bar_wrapper");
+        const NavBarHambuger = document.getElementById("navbar_Hambuger_wrapper");
+
+        NavButton.addEventListener("click", () => {
+
+            NavBarHambuger.classList.toggle("NavBarHambuger_Open");
+            NavSideBar.classList.toggle("NavSideBar_Expanded");
+            NavSideBarWrapper.classList.toggle("NavSideBarWrapper_Expanded");
+        }, false);
 
 
-            NavButton.addEventListener("click", () => {
-                NavSideBar.classList.replace("NavSideBar_Collapsed", "NavSideBar_Expanded");
-                NavSideBarWrapper.classList.replace("NavSideBarWrapper_Collapsed", "NavSideBarWrapper_Expanded");
-            }, false);
+        NavSideBar.addEventListener("click", (e) => {
+            /*PsiKai, https://stackoverflow.com/questions/69773505/prevent-overlay-click-for-elements-with-a-higher-z-index */
+            if (e.target.classList.contains("NavSideBar")) {
+                NavBarHambuger.classList.toggle("NavBarHambuger_Open");
+                NavSideBar.classList.toggle("NavSideBar_Expanded");
+                NavSideBarWrapper.classList.toggle("NavSideBarWrapper_Expanded");
+            }
+
+        }, false);
+    }
 
 
-            NavSideBar.addEventListener("click", (e) => {
-                /*PsiKai, https://stackoverflow.com/questions/69773505/prevent-overlay-click-for-elements-with-a-higher-z-index */
-                if (e.target.classList.contains("NavSideBar")) {
-                    NavSideBar.classList.replace("NavSideBar_Expanded", "NavSideBar_Collapsed");
-                    NavSideBarWrapper.classList.replace("NavSideBarWrapper_Expanded", "NavSideBarWrapper_Collapsed");
-                }
 
-            }, false);
-        }
+
+
 
     </script>
 

@@ -2,11 +2,13 @@
 * {
     box-sizing: border-box;
     font-family: 'Noto Sans TC', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 
 :root {
-    --background-color: rgb(43, 43, 43);;
+    --background-color: rgb(43, 43, 43);
     --border-color: #cacaca;
     --title-color: #dadada;
     --author-color: #808080;
@@ -50,8 +52,6 @@
 /*Default stuff*/
 /*#region*/
     html, body {
-        margin: 0;
-        padding: 0;
         height: 100%;
         overflow-x: hidden;
         scroll-behavior: smooth;
@@ -75,25 +75,27 @@
 
     /*Nav bar*/
     .NavBar {
-        position: relative;
+        position: fixed;
         top: 0;
         left: 0;
 
-        height: 36px;
+        height: 38px;
         width: 100%;
 
         background-color: rgb(20, 20, 20);
 
         transition: 0.2s ease-out;
+
+        z-index: 20;
         
     }
 
     .NavButton {
-        height: 36px;
-        width: 60px;
+        height: 38px;
+        width: 48px;
         border: none;
         appearance: none;
-        position: relative;
+        position: fixed;
         top: 0;
         left: 0;
 
@@ -107,34 +109,84 @@
         background-color: #202020;
     }
 
-    .NavBarHambuger {
-        fill: #8d8d8d;
-        height: 24px;
-        display: inline-block;
+    .NavBarHambuger { /*Please ignore the typo*/
+        display: flex;
+
+        height: 100%;
+        width: fit-content;
+
+
+        flex-direction: column;
+
         position: relative;
+        top: 10px;
+        left: 20px;
+
+    }
+
+    .NavBarHambuger span {
+        background-color: rgb(122, 122, 122);
+        height: 2px;
+        width: 20px;
+        display: block;
+        position: relative;
+
+        transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+
+    .NavBarHambuger span:nth-child(1) {
+        top: 0px;
+        transform-origin: left center;
+    }
+
+    .NavBarHambuger span:nth-child(2) {
+        top: 5px;
+        transform-origin: left center;
+    }
+
+    .NavBarHambuger span:nth-child(3) {
+        top: 10px;
+        transform-origin: left center;
+    }
+
+
+    .NavBarHambuger_Open span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 0px;
         left: 0px;
-        top: 2px;
+    }
+
+    .NavBarHambuger_Open span:nth-child(2) {
+        width: 0;
+    }
+
+    .NavBarHambuger_Open span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 10px;
+        left: 0px;
     }
 
 
 
-
-    /*Nav Side Bar*/
+/*Nav Side Bar*/
     .NavSideBar {
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 38px;
+        left: 0vw;
         z-index: 13;
 
-        height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: visible;
         
         background-color: rgba(22, 22, 22, 0.6);
-        transition: width 0.5s cubic-bezier(0, 0.6, 0.4, 1);
+        transition: width 0.4s cubic-bezier(0, 0.6, 0.4, 1);
 
-    }
 
-    .NavSideBar_Collapsed {
+        /*Trying to fix chrome mobile's vh problem*/
+        min-height: -webkit-fill-available;
+        height: calc((var(--vh, 1vh) * 200) - 38px);
+
         width: 0;
     }
 
@@ -145,40 +197,52 @@
 
     .NavSideBarWrapper {
         position: fixed;
-        top: 0;
-        left: 0px;
+        top: 38px;
+        bottom: 0;
+        left: 0vw;
         z-index: 14;
         background-color: rgb(22, 22, 22); /*Bugged when using #161616*/
         list-style-type: none;
-        height: 100vh;
-        transition: width 0.5s cubic-bezier(0, 0.6, 0.4, 1);
+
+        transition: width 0.3s cubic-bezier(0, 0.4, 0.45, 1);   /*when nav bar closes*/
         overflow-x: hidden;
+        overflow-y: visible;
         display: block;
 
-        padding: 0;
-        margin: 0;
-
+        /*Trying to fix chrome mobile's vh problem*/ 
+        min-height: -webkit-fill-available;
+        height: calc((var(--vh, 1vh) * 200) - 38px);  
+        
+        width: 0vw;
     }
 
-    .NavSideBarWrapper_Collapsed {
-        width: 0;
-    }
 
     .NavSideBarWrapper_Expanded {
-        width: clamp(260px, 30vw, 450px);
+        width: clamp(300px, 30vw, 320px);
+        transition: width 0.5s cubic-bezier(0, 0.6, 0.4, 1);
 
     }
 
 
 
+    /*Nav Bar Content*/
+        .nav_list {
+            
+        }
 
-    .nav_list {
-        display: flex;
-        flex-direction: column;
-        width: fit-content;
+        .nav_link {
+            display: block;
+            background-color: #161616;
+            text-decoration: none;
+            color: white;
 
-        margin-bottom: 16px;
-    }
+            font-size: 15px;
+            padding: 8px 0 8px 20px;
+        }
+    
+        .nav_link:hover {
+            background-color: #2c2c2c;
+        }
 
 
 
@@ -205,9 +269,9 @@
         flex-direction: row;
         flex-wrap: wrap;
         position: relative;
+        top: 34px;
 
         margin-left: 20px;
-        margin-top: -4px;
         margin-bottom: 1rem;
     }
 
@@ -285,7 +349,7 @@
     }
 
     .theme-switch input {
-        display:none;
+        display: none;
     }
 
     .slider {
