@@ -257,7 +257,7 @@ p {
 
         color: #cecece;
         transition: 0.2s height cubic-bezier(0.165, 0.84, 0.44, 1);
-        overflow: visible;
+        overflow: hidden;
     }
 
 
@@ -287,6 +287,7 @@ p {
 
     .MenuBarDisplayed {
         height: 70px;
+        overflow: visible;
     }
 
 
