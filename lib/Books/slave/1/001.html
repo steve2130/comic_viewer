@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-      <meta charset="utf-8">
-      <link href="../../../Styles/style-pages.css" rel="stylesheet" type="text/css"/>
-      <script defer src="../../../Scripts/page.js"></script>
-      <meta name="viewport" content="width = device-width, initial-scale = 1"/>
-      <link rel="shortcut icon" href="../../../Assets/person-digging-solid.svg" type="image/x-icon"><!--Icon created by Dave Gandy-->
-      <title>1</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <link href="../../../Styles/style-pages.css" rel="stylesheet" type="text/css"/>
+        <script defer src="../../../Scripts/page.js"></script>
+        <meta name="viewport" content="width = device-width, initial-scale = 1"/>
+        <link rel="shortcut icon" href="../../../Assets/person-digging-solid.svg" type="image/x-icon"><!--Icon created by Dave Gandy-->
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+            
+        <title>1</title>
+    </head>
 
-  <body>
-     <div class="image-box">
+    <body>
+        <div class="image-box">
 
-        <label for="button">
-            <button id="next_page_button" type="button" class="PageTurningButton split right"></button>
-        </label>
+            <label for="button">
+                <button id="next_page_button" type="button" class="PageTurningButton split right"></button>
+            </label>
 
-        <label for="button">
-            <button id="previous_page_button" type="button" class="PageTurningButton split left "></button>
-        </label>
+            <label for="button">
+                <button id="previous_page_button" type="button" class="PageTurningButton split left "></button>
+            </label>
 
 
-        <label for="button">
-            <button id="menu_button" type="button" class="MenuButton"></button>
-        </label>
+            <label for="button">
+                <button id="menu_button" type="button" class="MenuButton"></button>
+            </label>
 
-        <img id="image" alt="image" src="images/001.jpg"/>
+            <img id="image" alt="image" src="images/001.jpg"/>
 
     </div>
 
@@ -60,9 +65,12 @@
     
         <div class="MenuBar TopMenuBar">
             <div class="MenuBar_Wrapper display_none"></div>
-            <svg class="MenuBar_CloseIcon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve">
-                <!--https://www.svgrepo.com/svg/32011/close-button-->
-                <g><path style="fill:#030104;" d="M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0L13,15.313L9.533,18.78c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467L7.221,9.534c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467C19.033,16.725,19.033,17.138,18.78,17.394z"/></g>
+    
+            <!--Icons from https://www.ibm.com/design/language/iconography/ui-icons/library/-->
+
+            <svg class="MenuBar_CloseIcon" id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                <defs><style>.cls-2{fill:none;}</style></defs>
+                <polygon fill="currentcolor" class="cls-1" points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"/><rect class="cls-2" width="32" height="32"/>
             </svg>
 
             

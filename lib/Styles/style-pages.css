@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
+    font-display: fallback;
 }
 
 :root {
@@ -18,9 +20,6 @@ html, body {
     overflow: hidden;
 }
 
-p {
-    font-display: fallback;
-}
 
 .display_none {
     display: none;
@@ -79,8 +78,6 @@ p {
         max-width: 100%;
 
         padding: 0;
-
-
 
         image-rendering: high-quality;  /*https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering*/
     }
@@ -214,7 +211,6 @@ p {
 
         font-size: 30px;
         color: white;
-        font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 
         position: absolute;
         /* top: calc(28vh - 1px);
@@ -244,21 +240,23 @@ p {
     
 /*Menu Bar*/
 
-
     .MenuBar {
         position: absolute;
+        padding: 0;
+        margin: 0;
 
         display: block;
         height: 0;
         width: 100vw;
         z-index: 5;
 
-        background-color: rgba(22, 22, 22, 0.95);   /*#161616*/
+        background-color: rgba(22, 22, 22, 0.98);   /*#161616*/
 
-        color: #cecece;
         transition: 0.2s height cubic-bezier(0.165, 0.84, 0.44, 1);
-        overflow: hidden;
+        overflow: visible;
     }
+
+
 
 
     .MenuBar_Wrapper {
@@ -273,20 +271,19 @@ p {
         background-color: transparent;
     }
 
+        .TopMenuBar {
+            top: 0;
+            left: 0;
+        }
 
-
-    .TopMenuBar {
-        top: 0;
-        left: 0;
-    }
-
-    .BottomMenuBar {
-        bottom: 0;
-        left: 0;
-    }
+        .BottomMenuBar {
+            bottom: 0;
+            left: 0;
+        }
 
     .MenuBarDisplayed {
         height: 70px;
+        transition: 0.2s height cubic-bezier(0.165, 0.84, 0.44, 1);
         overflow: visible;
     }
 
@@ -298,32 +295,66 @@ p {
 
     .MenuBar_CloseIcon {
         position: absolute;
-        left: 30px;
-        top: calc(70px / 2 - 12px);
+        left: 20px;
+        top: -20px;
         z-index: 6;
 
-        height: 22px;
+        height: calc(20px + 12px + 12px);
         width: auto;
+
+        padding: 12px;
         
-        opacity: 0.9;
         cursor: pointer;
-        filter: invert(1);
-        
+        fill: #F4F4F4;  
+        color: #F4F4F4;
+        opacity: 0;
+
+        transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1),
+                    0.2s top linear;
     }
+
+            .MenuBar_CloseIcon:hover {
+                background-color: rgba(44, 44, 44, 1); /*#2c2c2c*/
+            }
+
+            .MenuBar_CloseIcon_Displayed {
+                top: calc(70px / 2 - 22px);
+                opacity: 1;
+                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
 
 
 
     .MenuBar_OverflowMenuIcon {
         position: absolute;
-        top: calc(70px / 2 - 12px);
-        right: 10px;
+        top: -20px;
+        right: 12px;
 
-        height: 24px;
+        height: calc(20px + 12px + 12px); /*Compensating for padding*/
         width: auto;
 
-        filter: invert(1);
+        fill: #F4F4F4;
         cursor: pointer;
+        opacity: 0;
+
+        padding: 12px;
+        transition: 0.2s opacity cubic-bezier(0.075, 0.82, 0.165, 1),
+                    0.2s top linear;
     }
+
+            .MenuBar_OverflowMenuIcon:hover {
+                background-color: rgba(44, 44, 44, 1); /*#2c2c2c*/
+            }
+
+            .MenuBar_OverflowMenuIcon_Displayed {
+                top: calc(70px / 2 - 22px);
+                opacity: 1;
+                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+
+
+
 
 
     .MenuBar_ClickableMenu_Wrapper {
@@ -335,15 +366,17 @@ p {
         border-radius: 16px;
         
         height: 0;
-        width: 240px;
+        width: 0;
         background-color: #161616;
-        transition: 0.3s height cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
         user-select: none;
     }
 
-    .MenuBar_ClickableMenu_Wrapper_Expanded {
-        height: 320px;
-    }
+        .MenuBar_ClickableMenu_Wrapper_Expanded {
+            width: 240px;
+            height: 320px;
+            transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
 
 
     .MenuBar_PageIcon {
