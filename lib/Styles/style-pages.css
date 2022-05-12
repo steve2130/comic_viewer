@@ -314,13 +314,22 @@ html, body {
     }
 
             .MenuBar_CloseIcon:hover {
-                background-color: rgba(44, 44, 44, 1); /*#2c2c2c*/
+                background-color: #353535;
+            }
+
+            .MenuBar_CloseIcon:active{
+                background-color: #525252;
+            }
+
+            .MenuBar_CloseIcon:focus{
+                border: 2px solid #fff;
             }
 
             .MenuBar_CloseIcon_Displayed {
                 top: calc(70px / 2 - 22px);
                 opacity: 1;
-                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1), 
+                            0s border linear;
             }
 
 
@@ -343,13 +352,22 @@ html, body {
     }
 
             .MenuBar_OverflowMenuIcon:hover {
-                background-color: rgba(44, 44, 44, 1); /*#2c2c2c*/
+                background-color: #353535; 
+            }
+
+            .MenuBar_OverflowMenuIcon:active{
+                background-color: #525252;
+            }
+
+            .MenuBar_OverflowMenuIcon:focus{
+                border: 2px solid #fff;
             }
 
             .MenuBar_OverflowMenuIcon_Displayed {
                 top: calc(70px / 2 - 22px);
                 opacity: 1;
-                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+                transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1),
+                            0s border linear;
             }
 
 
