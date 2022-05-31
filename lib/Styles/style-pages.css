@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Lato', 'Gill Sans', 'Gill Sans MT', sans-serif;
+    font-family: 'Lato', 'IBM Plex Sans', 'Gill Sans', 'Gill Sans MT', sans-serif;
     font-display: fallback;
 
     -webkit-tap-highlight-color: transparent;
@@ -229,7 +229,7 @@ svg {
         align-items: center;
         justify-content: center;
 
-        font-size: 30px;
+        font-size: 28px;
         color: white;
 
         position: absolute;
@@ -271,6 +271,7 @@ svg {
         z-index: 5;
 
         background-color: rgba(22, 22, 22, 0.98);   /*#161616*/
+        border: 0px solid transparent;
 
         transition: 0.2s height cubic-bezier(0.165, 0.84, 0.44, 1);
         overflow: visible;
@@ -294,11 +295,13 @@ svg {
         .TopMenuBar {
             top: 0;
             left: 0;
+            border-bottom: 1px solid #393939;
         }
 
         .BottomMenuBar {
             bottom: 0;
             left: 0;
+            border-top: 1px solid #393939;
         }
 
     .MenuBarDisplayed {
@@ -347,7 +350,6 @@ svg {
                     0s border linear;
     }
 
-
             .MenuBar_Icon:hover {
                 background-color: #353535; 
             }
@@ -360,6 +362,7 @@ svg {
                 border: 2px solid #fff;
             }
 
+
     .MenuBar_CloseIcon {
         left: 20px;
     }
@@ -369,40 +372,39 @@ svg {
         .MenuBar_RightSideIconWrapper {
             position: fixed;
             right: 0;
+            height: 70px;
 
             display: inline-block;
             width: fit-content;
-
-
         }
 
-        .MenuBar_OverflowMenuIcon {
-            position: relative;
-        }
+            .MenuBar_OverflowMenuIcon {
+                position: relative;
+            }
 
-        .MenuBar_MaximizeIcon {
-            position: relative;
-            padding: 15px;
-            height: calc(14px + 15px + 15px);
-        }
+            .MenuBar_MaximizeIcon {
+                position: relative;
+                padding: 15px;
+                height: calc(14px + 15px + 15px);
+            }
 
-                .MenuBar_MaximizeIcon:hover {
-                    padding: 13px;
-                    height: calc(18px + 13px + 13px);
-                    transition: 0.2s all ease-out;
-                }
+                    .MenuBar_MaximizeIcon:hover {
+                        padding: 14px;
+                        height: calc(16px + 14px + 14px);
+                        transition: 0.2s all ease-out;
+                    }
 
-        .MenuBar_MinimizeIcon {
-            position: relative;
-            padding: 14px;
-            height: calc(16px + 14px + 14px);
-        }
+            .MenuBar_MinimizeIcon {
+                position: relative;
+                padding: 14px;
+                height: calc(16px + 14px + 14px);
+            }
 
-                .MenuBar_MinimizeIcon:hover {
-                    padding: 15px;
-                    height: calc(14px + 15px + 15px);
-                    transition: 0.2s all ease-out;
-                }
+                    .MenuBar_MinimizeIcon:hover {
+                        padding: 15px;
+                        height: calc(14px + 15px + 15px);
+                        transition: 0.2s all ease-out;
+                    }
 
 
 
@@ -415,45 +417,92 @@ svg {
 
     .MenuBar_ClickableMenu_Wrapper {
         position: absolute;
-        right: 6px;
-        top: 52px;
+        right: 0px;
+        top: 69px;
 
         z-index: 6;
-        border-radius: 16px;
         
         height: 0;
         width: 0;
         background-color: #161616;
-        transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        border: 1px solid #393939;
         user-select: none;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+
+        box-sizing: border-box;
+
+        padding: 12px 16px;
+
+        list-style-type: none;
+    }
+
+    .MenuBar_ClickableMenu_Wrapper::after {
+        content: '';
+        background-color: #161616;
+        position: absolute;
+        right: 0;
+        top: -2px;
+
+        height: 3px;
+        width: 44px;
+
     }
 
         .MenuBar_ClickableMenu_Wrapper_Expanded {
             width: 240px;
             height: 320px;
-            transition: 0.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
 
-    .MenuBar_PageIcon {
-        height: 24px;
+
+
+
+    .MenuBar_ClickableMenu_Column_1 {
         width: auto;
-
-        color: black;
-        fill: black;
-        position: relative;
-        filter: invert(1);
-        z-index: 7;
-
+        height: auto;
+        background-color: transparent;
     }
 
-    .MenuBar_TwoPage {
-        right: 0;
-    }
+            .MenuBar_ClickableMenu_Column_1_Text {
+                color : #c6c6c6;
+                font-family: 'IBM Plex Sans';
+                font-size: 0.8rem;
 
-    .MenuBar_SinglePage {
-        right: 0;
-    }
+                padding-bottom: 6px;
+                border-bottom: 1px solid #393939;
+                margin-bottom: 12px;
+            }
+
+
+            .MenuBar_PageIcon {
+                height: calc(28px + 6px + 6px); /*Compensate for padding*/
+                width: calc(50% - 5px);
+                padding: 6px 14px;
+    
+                color: #c6c6c6;
+                position: relative;
+                z-index: 7;
+
+                display: inline-block;
+                cursor: pointer;
+                background-color: #393939;
+                border: 0;
+            }
+
+                .MenuBar_SinglePage {
+                    margin-right: 3px;
+                }
+
+                .MenuBar_TwoPage {
+                    margin-left: 3px;
+                }
+    
+
+
+
+
+
+
 
 
     /*
